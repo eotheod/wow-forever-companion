@@ -1,0 +1,891 @@
+{
+  "Głowa (Head)": {
+    "Lionheart Helm": {
+      "id": 12640,
+      "Armor": 565,
+      "Crit": 2.0,
+      "Hit": 2.0,
+      "Quality": "Epic"
+    },
+    "Crown of Destruction": {
+      "id": 18817,
+      "Armor": 392,
+      "Stamina": 23,
+      "Crit": 2.0,
+      "AP": 44,
+      "Quality": "Epic"
+    },
+    "Mish'undare, Circlet of the Mind Flayer": {
+      "id": 19375,
+      "Armor": 82,
+      "Stamina": 15,
+      "Intellect": 24,
+      "Spirit": 9,
+      "Crit": 2.0,
+      "SpellPower": 35,
+      "Quality": "Epic"
+    },
+    "Helm of Endless Rage": {
+      "id": 19372,
+      "Armor": 670,
+      "Strength": 26,
+      "Agility": 26,
+      "Stamina": 29,
+      "Hit": 1.0,
+      "Quality": "Epic"
+    },
+    "Bloodfang Hood": {
+      "id": 16908,
+      "Armor": 161,
+      "Strength": 6,
+      "Agility": 27,
+      "Stamina": 17,
+      "Crit": 1.0,
+      "Hit": 1.0,
+      "Quality": "Epic"
+    },
+    "Spellweaver's Turban": {
+      "id": 13386,
+      "Armor": 73,
+      "Intellect": 9,
+      "Hit": 2.0,
+      "SpellPower": 36,
+      "Quality": "Rare"
+    }
+  },
+  "Szyja (Neck)": {
+    "Onyxia Tooth Pendant": {
+      "id": 18404,
+      "Agility": 12,
+      "Stamina": 9,
+      "Crit": 1.0,
+      "Hit": 1.0,
+      "FireResist": 10,
+      "Quality": "Epic"
+    },
+    "Choker of the Fire Lord": {
+      "id": 18814,
+      "Stamina": 7,
+      "Intellect": 7,
+      "SpellPower": 34,
+      "Quality": "Epic"
+    },
+    "Prestor's Talisman of Connivery": {
+      "id": 19377,
+      "Agility": 30,
+      "Hit": 1.0,
+      "Quality": "Epic"
+    },
+    "Mark of Fordring": {
+      "id": 15411,
+      "Crit": 1.0,
+      "AP": 26,
+      "Quality": "Rare"
+    },
+    "Diana's Pearl Necklace": {
+      "id": 13524,
+      "Intellect": 8,
+      "Spirit": 8,
+      "SpellPower": 20,
+      "Quality": "Rare"
+    },
+    "Star of Mystaria": {
+      "id": 13389,
+      "Stamina": 9,
+      "Intellect": 9,
+      "Hit": 1.0,
+      "Quality": "Rare"
+    }
+  },
+  "Barki (Shoulders)": {
+    "Truestrike Shoulders": {
+      "id": 12927,
+      "Armor": 129,
+      "Hit": 2.0,
+      "AP": 24,
+      "Quality": "Rare"
+    },
+    "Mantle of the Blackwing Cabal": {
+      "id": 19370,
+      "Armor": 74,
+      "Stamina": 12,
+      "Intellect": 16,
+      "SpellPower": 34,
+      "Quality": "Epic"
+    },
+    "Drake Talon Pauldrons": {
+      "id": 19374,
+      "Armor": 634,
+      "Strength": 20,
+      "Agility": 20,
+      "Stamina": 17,
+      "Dodge": 1.0,
+      "Quality": "Epic"
+    },
+    "Spaulders of the Unseen": {
+      "id": 21379,
+      "Armor": 169,
+      "Strength": 22,
+      "Agility": 19,
+      "Stamina": 18,
+      "Quality": "Epic"
+    }
+  },
+  "Plecy (Back)": {
+    "Cloak of the Shrouded Mists": {
+      "id": 17102,
+      "Armor": 57,
+      "Agility": 22,
+      "Stamina": 12,
+      "Hit": 1.0,
+      "Quality": "Epic"
+    },
+    "Cloak of the Brood Lord": {
+      "id": 19378,
+      "Armor": 53,
+      "Stamina": 10,
+      "Intellect": 14,
+      "SpellPower": 28,
+      "Quality": "Epic"
+    },
+    "Cape of the Black Baron": {
+      "id": 13340,
+      "Armor": 45,
+      "Agility": 15,
+      "AP": 20,
+      "Quality": "Rare"
+    },
+    "Elementium Threaded Cloak": {
+      "id": 19386,
+      "Armor": 169,
+      "Stamina": 13,
+      "Dodge": 2.0,
+      "Quality": "Epic"
+    },
+    "Hide of the Wild": {
+      "id": 18510,
+      "Armor": 48,
+      "Intellect": 10,
+      "Spirit": 10,
+      "SpellPower": 42,
+      "Quality": "Epic"
+    }
+  },
+  "Klatka (Chest)": {
+    "Breastplate of Bloodthirst": {
+      "id": 12757,
+      "Armor": 687,
+      "Strength": 13,
+      "Stamina": 20,
+      "Crit": 2.0,
+      "Hit": 1.0,
+      "Quality": "Epic"
+    },
+    "Breastplate of Wrath": {
+      "id": 16966,
+      "Armor": 757,
+      "Strength": 17,
+      "Stamina": 40,
+      "Defense": 11,
+      "Quality": "Epic"
+    },
+    "Savage Gladiator Chain": {
+      "id": 11726,
+      "Armor": 361,
+      "Strength": 13,
+      "Agility": 14,
+      "Stamina": 13,
+      "Crit": 2.0,
+      "Quality": "Epic"
+    },
+    "Robe of the Archmage": {
+      "id": 14153,
+      "Armor": 96,
+      "Intellect": 12,
+      "Crit": 1.0,
+      "SpellPower": 40,
+      "Quality": "Epic"
+    },
+    "Robe of Volatile Power": {
+      "id": 19145,
+      "Armor": 102,
+      "Stamina": 10,
+      "Intellect": 15,
+      "Crit": 2.0,
+      "SpellPower": 23,
+      "Quality": "Epic"
+    },
+    "Bloodfang Chestpiece": {
+      "id": 16905,
+      "Armor": 221,
+      "Strength": 11,
+      "Agility": 31,
+      "Stamina": 17,
+      "Crit": 1.0,
+      "Hit": 1.0,
+      "Quality": "Epic"
+    },
+    "Cadaverous Armor": {
+      "id": 14637,
+      "Armor": 179,
+      "Agility": 8,
+      "AP": 60,
+      "Quality": "Rare"
+    }
+  },
+  "Nadgarstki (Wrist)": {
+    "Wristguards of True Flight": {
+      "id": 18812,
+      "Armor": 198,
+      "Agility": 19,
+      "Stamina": 11,
+      "Hit": 1.0,
+      "Quality": "Epic"
+    },
+    "Bracers of Arcane Accuracy": {
+      "id": 19840,
+      "Armor": 40,
+      "Stamina": 9,
+      "Intellect": 12,
+      "Hit": 1.0,
+      "SpellPower": 21,
+      "Quality": "Epic"
+    },
+    "Battleborn Armbraces": {
+      "id": 12936,
+      "Armor": 287,
+      "Crit": 1.0,
+      "Hit": 1.0,
+      "Quality": "Rare"
+    },
+    "Bracelets of Royal Redemption": {
+      "id": 21482,
+      "Armor": 43,
+      "Stamina": 10,
+      "Intellect": 11,
+      "Spirit": 10,
+      "SpellPower": 35,
+      "Quality": "Epic"
+    }
+  },
+  "Dłonie (Hands)": {
+    "Edgemaster's Handguards": {
+      "id": 14551,
+      "Armor": 201,
+      "WeaponSkillAxe": 7,
+      "WeaponSkillSword": 7,
+      "WeaponSkillDagger": 7,
+      "Quality": "Epic"
+    },
+    "Devilsaur Gauntlets": {
+      "id": 15062,
+      "Armor": 103,
+      "Stamina": 9,
+      "Crit": 1.0,
+      "AP": 28,
+      "Quality": "Rare"
+    },
+    "Aged Core Hound Gloves": {
+      "id": 18823,
+      "Armor": 130,
+      "Strength": 9,
+      "Stamina": 15,
+      "Crit": 1.0,
+      "WeaponSkillDagger": 5,
+      "Quality": "Epic"
+    },
+    "Gauntlets of Might": {
+      "id": 16863,
+      "Armor": 468,
+      "Strength": 22,
+      "Stamina": 17,
+      "Hit": 1.0,
+      "Defense": 5,
+      "Quality": "Epic"
+    },
+    "Ebony Flame Gloves": {
+      "id": 19385,
+      "Armor": 74,
+      "Stamina": 17,
+      "Intellect": 12,
+      "Hit": 1.0,
+      "SpellPower": 43,
+      "Quality": "Epic"
+    }
+  },
+  "Pas (Waist)": {
+    "Onslaught Girdle": {
+      "id": 19137,
+      "Armor": 494,
+      "Strength": 31,
+      "Stamina": 11,
+      "Crit": 1.0,
+      "Hit": 1.0,
+      "Quality": "Epic"
+    },
+    "Mana Igniting Cord": {
+      "id": 19136,
+      "Armor": 58,
+      "Stamina": 12,
+      "Intellect": 16,
+      "Crit": 1.0,
+      "SpellPower": 25,
+      "Quality": "Epic"
+    },
+    "Brigam Girdle": {
+      "id": 13142,
+      "Armor": 369,
+      "Strength": 15,
+      "Hit": 1.0,
+      "AP": 25,
+      "Quality": "Rare"
+    },
+    "Corehound Belt": {
+      "id": 19388,
+      "Armor": 62,
+      "Stamina": 16,
+      "Intellect": 16,
+      "SpellPower": 20,
+      "Quality": "Epic"
+    }
+  },
+  "Nogi (Legs)": {
+    "Devilsaur Leggings": {
+      "id": 15063,
+      "Armor": 148,
+      "Stamina": 12,
+      "Crit": 1.0,
+      "AP": 46,
+      "Quality": "Rare"
+    },
+    "Cloudkeeper Legplates": {
+      "id": 14554,
+      "Armor": 617,
+      "Agility": 20,
+      "Stamina": 20,
+      "Quality": "Epic"
+    },
+    "Titanic Leggings": {
+      "id": 22385,
+      "Armor": 598,
+      "Strength": 30,
+      "Crit": 1.0,
+      "Hit": 2.0,
+      "Quality": "Epic"
+    },
+    "Bloodfang Pants": {
+      "id": 16909,
+      "Armor": 197,
+      "Strength": 11,
+      "Agility": 37,
+      "Stamina": 17,
+      "Crit": 1.0,
+      "Quality": "Epic"
+    },
+    "Padre's Trousers": {
+      "id": 18386,
+      "Armor": 78,
+      "Intellect": 20,
+      "Spirit": 20,
+      "SpellPower": 30,
+      "Quality": "Rare"
+    }
+  },
+  "Stopy (Feet)": {
+    "Chromatic Boots": {
+      "id": 19387,
+      "Armor": 596,
+      "Strength": 20,
+      "Agility": 20,
+      "Stamina": 17,
+      "Hit": 1.0,
+      "Quality": "Epic"
+    },
+    "Boots of the Shadow Flame": {
+      "id": 19381,
+      "Armor": 287,
+      "Stamina": 22,
+      "Hit": 2.0,
+      "AP": 44,
+      "Quality": "Epic"
+    },
+    "Boots of the Pure Thought": {
+      "id": 19437,
+      "Armor": 90,
+      "Stamina": 12,
+      "Intellect": 12,
+      "Spirit": 12,
+      "SpellPower": 62,
+      "Quality": "Epic"
+    },
+    "Snowblind Shoes": {
+      "id": 19131,
+      "Armor": 81,
+      "Stamina": 10,
+      "Intellect": 10,
+      "Spirit": 10,
+      "SpellPower": 32,
+      "Quality": "Epic"
+    },
+    "Windreaver Boots": {
+      "id": 13967,
+      "Armor": 247,
+      "Agility": 14,
+      "Hit": 1.0,
+      "AP": 20,
+      "Quality": "Rare"
+    }
+  },
+  "Pierścień (Ring)": {
+    "Band of Accuria": {
+      "id": 17063,
+      "Agility": 16,
+      "Stamina": 10,
+      "Hit": 2.0,
+      "Quality": "Epic"
+    },
+    "Quick Strike Ring": {
+      "id": 18821,
+      "Strength": 5,
+      "Agility": 8,
+      "Stamina": 8,
+      "Crit": 1.0,
+      "AP": 30,
+      "Quality": "Epic"
+    },
+    "Ring of Spell Power": {
+      "id": 19147,
+      "SpellPower": 33,
+      "Quality": "Epic"
+    },
+    "Don Julio's Band": {
+      "id": 19325,
+      "Stamina": 11,
+      "Crit": 1.0,
+      "Hit": 1.0,
+      "AP": 16,
+      "Quality": "Epic"
+    },
+    "Blackstone Ring": {
+      "id": 17713,
+      "Stamina": 6,
+      "Hit": 1.0,
+      "AP": 20,
+      "Quality": "Rare"
+    },
+    "Tarnished Elven Ring": {
+      "id": 18500,
+      "Agility": 15,
+      "Hit": 1.0,
+      "Quality": "Rare"
+    },
+    "Band of Sulfuras": {
+      "id": 19138,
+      "Stamina": 10,
+      "Intellect": 10,
+      "SpellPower": 24,
+      "Quality": "Epic"
+    }
+  },
+  "Trinket": {
+    "Thunderfury Spark": {
+      "id": 99991,
+      "AP": 40,
+      "Crit": 1.0,
+      "Quality": "Epic"
+    },
+    "Drake Fang Talisman": {
+      "id": 19431,
+      "Hit": 2.0,
+      "AP": 56,
+      "Dodge": 1.0,
+      "Quality": "Epic"
+    },
+    "Hand of Justice": {
+      "id": 11815,
+      "AP": 20,
+      "ExtraAttack": "2%",
+      "Quality": "Rare"
+    },
+    "Neltharion's Tear": {
+      "id": 19379,
+      "Hit": 2.0,
+      "SpellPower": 44,
+      "Quality": "Epic"
+    },
+    "Blackhand's Breadth": {
+      "id": 13965,
+      "Crit": 2.0,
+      "Quality": "Rare"
+    },
+    "Briarwood Reed": {
+      "id": 12930,
+      "SpellPower": 29,
+      "Quality": "Rare"
+    },
+    "Rejuvenating Gem": {
+      "id": 19395,
+      "SpellPower": 30,
+      "Quality": "Epic"
+    },
+    "Mind Quickening Gem": {
+      "id": 19340,
+      "Haste": 33.0,
+      "Quality": "Epic"
+    }
+  },
+  "Broń 1H (One-Hand)": {
+    "Thunderfury, Blessed Blade of the Windseeker": {
+      "id": 19019,
+      "Stamina": 8,
+      "Agility": 5,
+      "AP": 20,
+      "Dmg": "44 - 115",
+      "Speed": "1.90",
+      "DPS": "41.8",
+      "WeaponType": "Miecz (Sword)",
+      "Quality": "Legendary"
+    },
+    "Brutality Blade": {
+      "id": 18832,
+      "Strength": 9,
+      "Agility": 9,
+      "Crit": 1.0,
+      "Dmg": "90 - 168",
+      "Speed": "2.50",
+      "DPS": "51.6",
+      "WeaponType": "Miecz (Sword)",
+      "Quality": "Epic"
+    },
+    "Chromatically Tempered Sword": {
+      "id": 19351,
+      "Strength": 14,
+      "Agility": 14,
+      "Stamina": 7,
+      "Dmg": "106 - 198",
+      "Speed": "2.60",
+      "DPS": "58.5",
+      "WeaponType": "Miecz (Sword)",
+      "Quality": "Epic"
+    },
+    "Vis'kag the Bloodletter": {
+      "id": 17075,
+      "Crit": 1.0,
+      "Dmg": "100 - 187",
+      "Speed": "2.60",
+      "DPS": "55.2",
+      "WeaponType": "Miecz (Sword)",
+      "Quality": "Epic"
+    },
+    "Maladath, Runed Blade of the Black Flight": {
+      "id": 19352,
+      "Agility": 4,
+      "WeaponSkillSword": 4,
+      "Dmg": "86 - 162",
+      "Speed": "2.20",
+      "DPS": "56.4",
+      "WeaponType": "Miecz (Sword)",
+      "Quality": "Epic"
+    },
+    "Warblade of the Hakkari": {
+      "id": 19865,
+      "Crit": 1.0,
+      "AP": 28,
+      "Dmg": "59 - 110",
+      "Speed": "1.70",
+      "DPS": "49.7",
+      "WeaponType": "Miecz (Sword)",
+      "Quality": "Epic"
+    },
+    "Dal'Rend's Sacred Charge": {
+      "id": 12940,
+      "Strength": 4,
+      "Crit": 1.0,
+      "Dmg": "81 - 151",
+      "Speed": "2.80",
+      "DPS": "41.4",
+      "WeaponType": "Miecz (Sword)",
+      "Quality": "Rare"
+    },
+    "Dal'Rend's Tribal Guardian": {
+      "id": 12939,
+      "Armor": 100,
+      "Defense": 7,
+      "Dmg": "52 - 97",
+      "Speed": "1.80",
+      "DPS": "41.4",
+      "WeaponType": "Miecz (Sword)",
+      "Quality": "Rare"
+    },
+    "Perdition's Blade": {
+      "id": 18816,
+      "Hit": 1.0,
+      "Dmg": "73 - 137",
+      "Speed": "1.80",
+      "DPS": "58.3",
+      "WeaponType": "Sztylet (Dagger)",
+      "Quality": "Epic"
+    },
+    "Core Hound Tooth": {
+      "id": 18805,
+      "Stamina": 9,
+      "Crit": 1.0,
+      "AP": 20,
+      "Dmg": "57 - 107",
+      "Speed": "1.60",
+      "DPS": "51.2",
+      "WeaponType": "Sztylet (Dagger)",
+      "Quality": "Epic"
+    },
+    "Deathbringer": {
+      "id": 17068,
+      "Crit": 1.0,
+      "Dmg": "114 - 213",
+      "Speed": "2.90",
+      "DPS": "56.4",
+      "WeaponType": "Topór (Axe)",
+      "Quality": "Epic"
+    },
+    "Crul'shorukh, Edge of Chaos": {
+      "id": 19363,
+      "Stamina": 13,
+      "AP": 36,
+      "Dmg": "101 - 188",
+      "Speed": "2.30",
+      "DPS": "62.8",
+      "WeaponType": "Topór (Axe)",
+      "Quality": "Epic"
+    },
+    "Ironfoe": {
+      "id": 11684,
+      "ExtraAttack": "Chance on hit 2 extra attacks",
+      "Dmg": "73 - 136",
+      "Speed": "2.40",
+      "DPS": "43.5",
+      "WeaponType": "Obuch (Mace)",
+      "Quality": "Epic"
+    },
+    "Mageblade of Azuresong": {
+      "id": 17103,
+      "Stamina": 7,
+      "Intellect": 12,
+      "Crit": 1.0,
+      "SpellPower": 40,
+      "Dmg": "50 - 100",
+      "Speed": "2.00",
+      "WeaponType": "Miecz (Sword)",
+      "Quality": "Epic"
+    }
+  },
+  "Broń 2H (Two-Handed)": {
+    "Ashkandi, Greatsword of the Brotherhood": {
+      "id": 19364,
+      "Stamina": 33,
+      "AP": 86,
+      "Dmg": "229 - 344",
+      "Speed": "3.50",
+      "DPS": "81.9",
+      "WeaponType": "Miecz 2H (Two-Handed)",
+      "Quality": "Epic"
+    },
+    "Sulfuras, Hand of Ragnaros": {
+      "id": 17182,
+      "Strength": 12,
+      "Stamina": 12,
+      "AP": 30,
+      "Dmg": "223 - 335",
+      "Speed": "3.70",
+      "DPS": "75.4",
+      "WeaponType": "Obuch 2H (Two-Handed)",
+      "Quality": "Legendary"
+    },
+    "Dark Edge of Insanity": {
+      "id": 21134,
+      "Stamina": 42,
+      "Crit": 2.0,
+      "AP": 68,
+      "Dmg": "242 - 364",
+      "Speed": "3.50",
+      "DPS": "86.6",
+      "WeaponType": "Topór 2H (Two-Handed)",
+      "Quality": "Epic"
+    },
+    "Bonereaver's Edge": {
+      "id": 17076,
+      "Crit": 1.0,
+      "Dmg": "206 - 310",
+      "Speed": "3.40",
+      "DPS": "75.9",
+      "WeaponType": "Miecz 2H (Two-Handed)",
+      "Quality": "Epic"
+    },
+    "Untamed Blade": {
+      "id": 19334,
+      "Dmg": "192 - 289",
+      "Speed": "3.40",
+      "DPS": "70.7",
+      "AP": 300,
+      "WeaponType": "Miecz 2H (Two-Handed)",
+      "Quality": "Epic"
+    },
+    "Zin'rokh, Destroyer of Worlds": {
+      "id": 19854,
+      "Stamina": 28,
+      "AP": 72,
+      "Dmg": "196 - 295",
+      "Speed": "3.80",
+      "DPS": "64.6",
+      "WeaponType": "Miecz 2H (Two-Handed)",
+      "Quality": "Epic"
+    },
+    "Staff of the Shadow Flame": {
+      "id": 19356,
+      "Stamina": 24,
+      "Intellect": 29,
+      "Crit": 2.0,
+      "SpellPower": 84,
+      "Dmg": "137 - 207",
+      "Speed": "3.20",
+      "WeaponType": "Laska (Staff)",
+      "Quality": "Epic"
+    },
+    "Benediction": {
+      "id": 18608,
+      "Stamina": 10,
+      "Intellect": 31,
+      "Spirit": 12,
+      "Crit": 1.0,
+      "SpellPower": 106,
+      "Dmg": "134 - 202",
+      "Speed": "3.00",
+      "WeaponType": "Laska (Staff)",
+      "Quality": "Epic"
+    }
+  },
+  "Main-Hand": {
+    "Lok'amir il Romathis": {
+      "id": 19360,
+      "Stamina": 10,
+      "Intellect": 18,
+      "SpellPower": 84,
+      "Dmg": "60 - 120",
+      "Quality": "Epic"
+    },
+    "Claw of the Black Drake": {
+      "id": 19365,
+      "Strength": 14,
+      "Crit": 1.0,
+      "Dmg": "102 - 191",
+      "Speed": "2.60",
+      "Quality": "Epic"
+    },
+    "Aurastone Hammer": {
+      "id": 17105,
+      "Stamina": 10,
+      "Intellect": 10,
+      "SpellPower": 55,
+      "Quality": "Epic"
+    }
+  },
+  "Off-Hand": {
+    "Tome of the Fiery Arcana": {
+      "id": 19315,
+      "SpellPower": 40,
+      "Quality": "Epic"
+    },
+    "Jin'do's Bag of Whammies": {
+      "id": 19891,
+      "Stamina": 8,
+      "Intellect": 11,
+      "Hit": 1.0,
+      "SpellPower": 18,
+      "Quality": "Epic"
+    },
+    "Spirit of Aquementas": {
+      "id": 11904,
+      "SpellPower": 20,
+      "Quality": "Rare"
+    }
+  },
+  "Tarcza (Shield)": {
+    "Malistar's Defender": {
+      "id": 17106,
+      "Armor": 2585,
+      "Block": 44,
+      "Stamina": 16,
+      "Intellect": 9,
+      "Quality": "Epic"
+    },
+    "Elementium Reinforced Bulwark": {
+      "id": 19349,
+      "Armor": 2890,
+      "Block": 54,
+      "Strength": 19,
+      "Stamina": 23,
+      "Quality": "Epic"
+    },
+    "Drillborer Disk": {
+      "id": 17066,
+      "Armor": 2539,
+      "Block": 42,
+      "Stamina": 10,
+      "Quality": "Epic"
+    },
+    "The Immovable Object": {
+      "id": 19321,
+      "Armor": 2468,
+      "Block": 44,
+      "Stamina": 15,
+      "Quality": "Epic"
+    }
+  },
+  "Broń Dystansowa (Ranged)": {
+    "Striker's Mark": {
+      "id": 17069,
+      "Crit": 1.0,
+      "Hit": 1.0,
+      "AP": 22,
+      "Dmg": "69 - 129",
+      "Speed": "2.50",
+      "WeaponType": "Łuk (Bow)",
+      "Quality": "Epic"
+    },
+    "Crossbow of Smouldering Bolts": {
+      "id": 19361,
+      "Stamina": 7,
+      "Crit": 1.0,
+      "AP": 36,
+      "Dmg": "82 - 153",
+      "Speed": "3.20",
+      "WeaponType": "Kusza (Crossbow)",
+      "Quality": "Epic"
+    },
+    "Rhok'delar, Longbow of the Ancient Keepers": {
+      "id": 18713,
+      "Crit": 1.0,
+      "Dmg": "89 - 166",
+      "Speed": "2.90",
+      "WeaponType": "Łuk (Bow)",
+      "Quality": "Epic"
+    },
+    "Ashjre'thul, Crossbow of Smiting": {
+      "id": 19361,
+      "Stamina": 7,
+      "Crit": 1.0,
+      "AP": 36,
+      "Dmg": "124 - 186",
+      "Speed": "3.40",
+      "WeaponType": "Kusza (Crossbow)",
+      "Quality": "Epic"
+    },
+    "Blastershot Launcher": {
+      "id": 17072,
+      "Stamina": 6,
+      "Crit": 1.0,
+      "Dmg": "66 - 124",
+      "Speed": "2.60",
+      "WeaponType": "Broń palna (Gun)",
+      "Quality": "Epic"
+    }
+  }
+}
