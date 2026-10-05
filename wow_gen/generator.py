@@ -20,6 +20,7 @@ st.set_page_config(
 )
 
 PAGE_HOME = "Home"
+PAGE_NEWS = "News"
 PAGE_GEN = "Generator"
 PAGE_PROF = "Profesje"
 PAGE_CLASS = "Klasy"
@@ -49,9 +50,11 @@ TRANSLATIONS = {
         "faction_select": "Wybierz Frakcję (Motyw):",
         "lang_select": "Język / Language:",
         "subtitle": "Baza wiedzy, narzędzia i statystyki — Motyw:",
-        "back_home": "⬅️ Powrót do Strony Główniej",
+        "back_home": "⬅️️ Powrót do Strony Główniej",
         "welcome_title": "Witaj w bazie wiedzy WoW Forever!",
         "welcome_desc": "Wybierz moduł klikając w jeden z poniższych przycisków:",
+        "nav_news": "📰 News & Blue Posts",
+        "nav_news_desc": "Oficjalne ogłoszenia Blizzarda.",
         "nav_gen": "🎲 Generator Imion",
         "nav_gen_desc": "Unikalne nicki RP.",
         "nav_prof": "📜 Profesje",
@@ -60,6 +63,10 @@ TRANSLATIONS = {
         "nav_class_desc": "Porównywarka i staty.",
         "nav_status": "🌐 Status Serwera",
         "nav_status_desc": "Realmy i statystyki.",
+        # News
+        "news_title": "📰 Oficjalne Wiadomości & Blue Posts (WoW Forever)",
+        "news_subtitle": "Najnowsze komunikaty deweloperów Blizzarda i aktualizacje serwera WoW: Forever.",
+        "news_source_btn": "🔗 Otwórz pełny Blue Tracker na bluetracker.gg",
         # Generator
         "gen_title": "🎲 Generator Imion (WoW Forever)",
         "gen_race": "Wybierz rasę:",
@@ -78,7 +85,7 @@ TRANSLATIONS = {
         "prof_select": "Wybierz profesję:",
         "prof_tab_route": "🗺 Trasa Krok po Kroku (1-300)",
         "prof_tab_shop": "🛒 Shopping List (Materiały)",
-        "prof_tab_keep": "⚠️️ Porady [KEEP] (Co zachować?)",
+        "prof_tab_keep": "⚠ Porady [KEEP] (Co zachować?)",
         "prof_req_mats": "🧪 Wymagane materiały:",
         "prof_do_count": "Wykonaj:",
         "prof_keep_badge": "⚠ [KEEP] ZACHOWAJ!",
@@ -94,7 +101,7 @@ TRANSLATIONS = {
         "race_all": "Wszystkie",
         "race_available": "Dostępne rasy dla klasy",
         "race_pve": "⚔ Ocena PvE:",
-        "race_pvp": "🛡️️ Ocena PvP:",
+        "race_pvp": "🛡 Ocena PvP:",
         "race_verdict": "🎯 Werdykt i synergia:",
         "race_traits": "Zdolności Rasowe (Racials):",
         "item_calc_title": "⚔ Kalkulator Przedmiotów & Porównywarka Speców",
@@ -125,14 +132,20 @@ TRANSLATIONS = {
         "back_home": "⬅️ Back to Main Page",
         "welcome_title": "Welcome to WoW Forever Knowledge Base!",
         "welcome_desc": "Choose a module by clicking one of the buttons below:",
+        "nav_news": "📰 News & Blue Posts",
+        "nav_news_desc": "Official Blizzard updates.",
         "nav_gen": "🎲 Name Generator",
         "nav_gen_desc": "Unique RP Names.",
         "nav_prof": "📜 Professions",
         "nav_prof_desc": "1-300 Leveling Guide.",
-        "nav_class": "🛡️️ Classes & Items",
+        "nav_class": "🛡 Classes & Items",
         "nav_class_desc": "Comparator & Stat Weights.",
         "nav_status": "🌐 Server Status",
         "nav_status_desc": "Realms & Census Stats.",
+        # News
+        "news_title": "📰 Official News & Blue Posts (WoW Forever)",
+        "news_subtitle": "Latest announcements from Blizzard developers and WoW: Forever updates.",
+        "news_source_btn": "🔗 Open full Blue Tracker on bluetracker.gg",
         # Generator
         "gen_title": "🎲 Name Generator (WoW Forever)",
         "gen_race": "Select Race:",
@@ -178,7 +191,7 @@ TRANSLATIONS = {
         "item_mode": "Select Mode:",
         "mode_browse": "📦 Browse Inventory",
         "mode_search": "🔍 Search Database",
-        "mode_compare": "⚖️ Compare Items (A vs B)",
+        "mode_compare": "⚖️️ Compare Items (A vs B)",
         "item_select_slot": "Select Equipment Slot (18 slots):",
         "item_select_item": "Select Item from slot:",
         "item_score_breakdown": "📊 Combat Value Breakdown:",
@@ -201,7 +214,7 @@ CLASS_SPECS = {
     "Hunter 🏹": ["Beast Mastery (BM)", "Marksmanship (MM)", "Survival (SV)"],
     "Warrior ⚔️": ["Arms", "Fury", "Protection (Tank)"],
     "Paladin 🔨": ["Holy (Healer)", "Protection (Tank)", "Retribution"],
-    "Rogue 🗡️": ["Assassination", "Combat", "Subtlety"],
+    "Rogue 🗡️️": ["Assassination", "Combat", "Subtlety"],
     "Priest ✨": ["Discipline", "Holy (Healer)", "Shadow"],
     "Shaman ⚡": ["Elemental", "Enhancement", "Restoration (Healer)"],
     "Mage 🔮": ["Arcane", "Fire", "Frost"],
@@ -209,7 +222,57 @@ CLASS_SPECS = {
     "Druid 🐾": ["Balance (Boomkin)", "Feral (Bear/Cat)", "Restoration (Healer)"]
 }
 
-# --- BAZA DANYCH DLA GENERATORA IMION Z BOGATĄ PULĄ NAZW / SUFIKSÓW ---
+# --- BAZA DANYCH BLUE POSTÓW ---
+BLUE_POSTS_DATA = [
+    {
+        "title": "The World of Warcraft: Forever Beta Now Live",
+        "date": "17 Wrz 2026, 21:00",
+        "author": "Blizzard Community Team",
+        "url": "https://www.bluetracker.gg/wow/topic/us-en/24304160-the-world-of-warcraft-forever-beta-now-live/",
+        "summary": "Gracze zostają zaproszeni do zamkniętej bety World of Warcraft: Forever, aby odkryć na nowo oryginalny Azeroth z nową zawartością Classic+.",
+        "content": """
+        **Witajcie w World of Warcraft: Forever Beta!**
+
+        Mamy ogromną przyjemność zaprosić pierwszą falę graczy do testów naszej długo oczekiwanej wersji *World of Warcraft: Forever*. 
+
+        **Co nowego czeka na was w becie?**
+        * **Przeorganizowany Azeroth Classic+**: Znane drogi i strefy kryją nowe sekrety, unikalne dungeony oraz nowe wątki fabularne.
+        * **Długofalowa progresja**: Zwiększone wsparcie dla różnorodnych konfiguracji klasowych i profesji bez naruszania ducha gry z roku 2004.
+        * **Dedykowany balans PvP & PvE**: Nowe mechaniki zapobiegające dominacji pojedynczych specjalizacji oraz zaktualizowane tabele statystyk.
+
+        Dziękujemy za wasze stałe wsparcie i opinie na oficjalnych forach!
+        """
+    },
+    {
+        "title": "Development Update: Class Tuning & Racial Synergies",
+        "date": "28 Wrz 2026, 18:30",
+        "author": "Aggrend (WoW Classic Lead)",
+        "url": "https://www.bluetracker.gg/wow/category/187-forever/",
+        "summary": "Przegląd ostatnich zmian w balancie klas oraz korekty przeliczników siły i krytyka dla paladynów, szamanów i rogalów.",
+        "content": """
+        Wraz z napływem danych z ostatnich testów raidowych wprowadzamy istotne korekty balansowe:
+
+        * **Paladin & Shaman**: Dopasowanie przeliczników Spell Power i Attack Power dla specjalizacji Hybrydowych (Retribution / Enhancement), aby zwiększyć ich użyteczność w rajdach 40-osobowych.
+        * **Professions 1-300**: Skorygowano koszty surowców przy wyższych poziomach Engineering oraz Blacksmithing, redukując frustrujące "puste punkty" w craftingu.
+        * **Racial Traits**: Analizujemy synergia zdolności rasowych Przymierza i Hordy pod kątem potyczek na Battlegroundach.
+        """
+    },
+    {
+        "title": "Realm Infrastructure & Anti-Queue System Improvements",
+        "date": "02 Paź 2026, 14:15",
+        "author": "Blizzard Technical Team",
+        "url": "https://www.bluetracker.gg/wow/category/187-forever/",
+        "summary": "Optymalizacja serwerów Everlook, Nordanaar oraz Warsong przed oficjalną premiarą sezonową.",
+        "content": """
+        Nasze zespoły inżynieryjne wdrożyły nowe aktualizacje serwerowe zorientowane na redukcję kolejek oraz zwiększenie wydajności w strefach z dużą zagęszczeniem graczy (np. Stranglethorn Vale oraz Blackrock Mountain).
+
+        * Zwiększono przepustowość warstw (layering) przy zachowaniu spójności świata PvP.
+        * Poprawiono stabilność integracji API ze statystykami populacji zewnętrznych serwisów.
+        """
+    }
+]
+
+# --- BAZA DANYCH DLA GENERATORA IMION ---
 DATA_FOREVER = {
     "RACES": {
         "Human 🦅": {
@@ -546,6 +609,17 @@ st.markdown(f"""
         border-color: {border_color};
     }}
 
+    /* STYL BLUE POSTA BLIZZARDA */
+    .blue-post-card {{
+        background: linear-gradient(180deg, #0a192f 0%, #06101e 100%);
+        border: 2px solid #00a2ff;
+        border-left: 6px solid #00a2ff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 20px rgba(0, 162, 255, 0.2);
+    }}
+
     div.stButton > button {{
         background: {btn_grad} !important;
         color: {text_gold} !important;
@@ -630,7 +704,12 @@ if st.session_state.page == PAGE_HOME:
     st.subheader(t("welcome_title"))
     st.write(t("welcome_desc"))
     st.write("---")
-    col1, col2, col3, col4 = st.columns(4)
+    col0, col1, col2, col3, col4 = st.columns(5)
+    with col0:
+        if st.button(t("nav_news"), use_container_width=True, key="h_btn_news"):
+            set_page(PAGE_NEWS)
+            st.rerun()
+        st.caption(t("nav_news_desc"))
     with col1:
         if st.button(t("nav_gen"), use_container_width=True, key="h_btn_gen"):
             set_page(PAGE_GEN)
@@ -653,7 +732,34 @@ if st.session_state.page == PAGE_HOME:
         st.caption(t("nav_status_desc"))
 
 # ==========================================
-# 2. GENERATOR IMION
+# 2. NEWS & BLUE POSTS
+# ==========================================
+elif st.session_state.page == PAGE_NEWS:
+    st.subheader(t("news_title"))
+    st.caption(t("news_subtitle"))
+    
+    st.markdown(f"[🔗 Otwórz Blue Tracker bezpośrednio na bluetracker.gg](https://www.bluetracker.gg/wow/category/187-forever/)")
+    st.write("---")
+    
+    for post in BLUE_POSTS_DATA:
+        st.markdown(f"""
+        <div class="blue-post-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #00a2ff; padding-bottom: 8px; margin-bottom: 12px;">
+                <span style="font-size: 1.25rem; font-weight: bold; color: #00a2ff;">🔹 {post['title']}</span>
+                <span style="color: #88aacc; font-size: 0.85rem;">{post['date']} | Autor: <b>{post['author']}</b></span>
+            </div>
+            <div style="font-size: 0.95rem; color: #d0e5ff; margin-bottom: 12px;">
+                {post['summary']}
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        with st.expander(f"📖 Czytaj pełny Blue Post: {post['title']}", expanded=False):
+            st.markdown(post["content"])
+            st.markdown(f"[🔗 Zobacz oryginalny wątek na Blue Tracker]({post['url']})")
+
+# ==========================================
+# 3. GENERATOR IMION
 # ==========================================
 elif st.session_state.page == PAGE_GEN:
     st.subheader(t("gen_title"))
@@ -664,7 +770,7 @@ elif st.session_state.page == PAGE_GEN:
     with col2:
         available_classes_f = DATA_FOREVER["RACES"][race_f]["classes"]
         class_f = st.selectbox(t("gen_class"), available_classes_f)
-        custom_f = st.text_input(t("gen_pattern"), placeholder="np. Tomasz Kucwaj")
+        custom_f = st.text_input(t("gen_pattern"), placeholder="np. Arthas / Shadowmage")
 
     count_f = st.slider(t("gen_count"), min_value=1, max_value=20, value=5)
 
@@ -687,7 +793,7 @@ elif st.session_state.page == PAGE_GEN:
             """, unsafe_allow_html=True)
 
 # ==========================================
-# 3. PROFESJE (1-300 LEVELING GUIDE)
+# 4. PROFESJE (1-300 LEVELING GUIDE)
 # ==========================================
 elif st.session_state.page == PAGE_PROF:
     st.subheader(t("prof_title"))
@@ -767,7 +873,7 @@ elif st.session_state.page == PAGE_PROF:
                             📍 Level: <span style="font-family: monospace; color: #fff;">[{z['range']}]</span> — {z['ore']}
                         </div>
                         <div style="font-size: 0.95rem; color: #e0e0e0; margin-bottom: 6px;">
-                            <b>🗺️ Recommended Zones / Spots:</b> <span style="color: #66c2ff;">{z['zones']}</span>
+                            <b>🗺️️ Recommended Zones / Spots:</b> <span style="color: #66c2ff;">{z['zones']}</span>
                         </div>
                         <div style="font-size: 0.88rem; color: #8e9ca8; font-style: italic;">
                             💡 <b>Tip:</b> {z['tips']}
@@ -798,7 +904,7 @@ elif st.session_state.page == PAGE_PROF:
                 """, unsafe_allow_html=True)
 
 # ==========================================
-# 4. KLASY I PRZEDMIOTY
+# 5. KLASY I PRZEDMIOTY
 # ==========================================
 elif st.session_state.page == PAGE_CLASS:
     tab_class, tab_items = st.tabs([t("class_tab_race"), t("class_tab_calc")])
@@ -926,7 +1032,7 @@ elif st.session_state.page == PAGE_CLASS:
                         st.dataframe(pd.DataFrame(score_breakdown), use_container_width=True, hide_index=True)
 
 # ==========================================
-# 5. STATUS SERWERA & STATS
+# 6. STATUS SERWERA & STATS
 # ==========================================
 elif st.session_state.page == PAGE_STATUS:
     import requests
@@ -970,29 +1076,94 @@ elif st.session_state.page == PAGE_STATUS:
 
     st.markdown(f"### {t('status_realms_header')}")
     realms_all = [
-        {"Realm Name": "⚔️ Everlook [PvP]", "Type": "Classic+ PvP", "Rules": "Open World PvP, Capital Raids", "Status": "🟢 Online", "Population": "High (Full)", "Players Online": 6120, "Balance A:H": "51% : 49%", "Ping": "22 ms"},
-        {"Realm Name": "⚔️ Warsong [PvP]", "Type": "Classic Fresh PvP", "Rules": "STV Skirmishes, Honor Rank 14", "Status": "🟢 Online", "Population": "Medium", "Players Online": 2850, "Balance A:H": "49% : 51%", "Ping": "19 ms"},
-        {"Realm Name": "💀 Tel'Abim [Hardcore PvP]", "Type": "Hardcore PvP", "Rules": "1 Life + Open World PvP", "Status": "🟢 Online", "Population": "Medium", "Players Online": 1245, "Balance A:H": "48% : 52%", "Ping": "29 ms"},
-        {"Realm Name": "🛡️ Nordanaar [PvE]", "Type": "Classic+ PvE", "Rules": "Safe leveling, Opt-in PvP (/pvp)", "Status": "🟢 Online", "Population": "High", "Players Online": 4480, "Balance A:H": "54% : 46%", "Ping": "25 ms"}
+        {"Nazwa Realmu": "⚔️ Everlook [PvP]", "Kategoria": "PvP", "Typ": "Classic+ PvP", "Zasady": "Otwarte PvP w strefach spornych, walka o bazy i stolice", "Status": "🟢 Online", "Populacja": "High (Full)", "Gracze Online": 6120, "Bilans A:H": "51% : 49%", "Ping": "22 ms"},
+        {"Nazwa Realmu": "⚔️ Warsong [PvP]", "Kategoria": "PvP", "Typ": "Classic Fresh PvP", "Zasady": "Dynamiczne potyczki w STV, ranking Honoru i ranga 14", "Status": "🟢 Online", "Populacja": "Medium", "Gracze Online": 2850, "Bilans A:H": "49% : 51%", "Ping": "19 ms"},
+        {"Nazwa Realmu": "💀 Tel'Abim [Hardcore PvP]", "Kategoria": "PvP", "Typ": "Hardcore PvP (Permadeath)", "Zasady": "1 życie na postać + włączone otwarte PvP w świecie", "Status": "🟢 Online", "Populacja": "Medium", "Gracze Online": 1245, "Bilans A:H": "48% : 52%", "Ping": "29 ms"},
+        {"Nazwa Realmu": "🛡️ Nordanaar [PvE]", "Kategoria": "PvE", "Typ": "Classic+ PvE", "Zasady": "Bezpieczny leveling, PvP na życzenie (/pvp) lub Battlegroundy", "Status": "🟢 Online", "Populacja": "High", "Gracze Online": 4480, "Bilans A:H": "54% : 46%", "Ping": "25 ms"},
+        {"Nazwa Realmu": "🛡️ Darrowshire [PvE]", "Kategoria": "PvE", "Typ": "Normal PvE", "Zasady": "Spokojna eksploracja, dungeony i raidy endgame bez ganków", "Status": "🟢 Online", "Populacja": "Low", "Gracze Online": 980, "Bilans A:H": "52% : 48%", "Ping": "24 ms"},
+        {"Nazwa Realmu": "🎭 Ravenholdt [RP-PvP]", "Kategoria": "RP", "Typ": "Roleplay PvP", "Zasady": "Klimat RP, wymóg imion lore + otwarte starcia frakcji", "Status": "🟢 Online", "Populacja": "Medium", "Gracze Online": 2150, "Bilans A:H": "50% : 50%", "Ping": "27 ms"},
+        {"Nazwa Realmu": "🎭 Moonglade [RP-PvE]", "Kategoria": "RP", "Typ": "Roleplay PvE", "Zasady": "Immersja fabularna, karczmy, eventy gildyjne bez wymuszonego PvP", "Status": "🟢 Online", "Populacja": "Medium", "Gracze Online": 1640, "Bilans A:H": "53% : 47%", "Ping": "28 ms"}
     ]
-    st.dataframe(pd.DataFrame(realms_all), use_container_width=True, hide_index=True)
+    t_all, t_pvp, t_pve, t_rp = st.tabs(["🌐 Wszystkie Realmy (7)", "⚔️ PvP (3)", "🛡️ PvE (2)", "🎭 RP (2)"])
+    with t_all:
+        st.dataframe(pd.DataFrame(realms_all).drop(columns=["Kategoria"]), use_container_width=True, hide_index=True)
+    with t_pvp:
+        st.dataframe(pd.DataFrame([r for r in realms_all if r["Kategoria"]=="PvP"]).drop(columns=["Kategoria"]), use_container_width=True, hide_index=True)
+    with t_pve:
+        st.dataframe(pd.DataFrame([r for r in realms_all if r["Kategoria"]=="PvE"]).drop(columns=["Kategoria"]), use_container_width=True, hide_index=True)
+    with t_rp:
+        st.dataframe(pd.DataFrame([r for r in realms_all if r["Kategoria"]=="RP"]).drop(columns=["Kategoria"]), use_container_width=True, hide_index=True)
 
     st.write("---")
 
     st.markdown(f"### {t('status_census_header')}")
-    census = fetch_classicplus_census()
+    with st.spinner("Pobieranie aktualnych danych z classicplus.io..."):
+        census = fetch_classicplus_census()
 
     if census:
-        total, faction_counts, class_counts = compute_census_stats(census, "all")
-        ally_cnt = faction_counts["Alliance"]
-        horde_cnt = faction_counts["Horde"]
-        ally_pct = (ally_cnt / total) * 100
-        horde_pct = (horde_cnt / total) * 100
+        snapshot = census.get("snapshotDate", "N/A")
+        datasets_available = list(census.get("datasets", {}).keys())
 
-        m1, m2, m3 = st.columns(3)
-        with m1:
-            st.metric(t("status_tested_chars"), f"{total:,}")
-        with m2:
-            st.metric("🦅 Alliance", f"{ally_cnt:,}", f"{ally_pct:.1f}%")
-        with m3:
-            st.metric("🪓 Horde", f"{horde_cnt:,}", f"{horde_pct:.1f}%")
+        class_colors = {
+            "Warrior": "#C69B6D", "Paladin": "#F48CBA", "Hunter": "#AAD372",
+            "Rogue": "#FFF468", "Priest": "#FFFFFF", "Shaman": "#0070DD",
+            "Mage": "#3FC7EB", "Warlock": "#8788EE", "Druid": "#FF7C0A"
+        }
+        realm_tab_labels = {"all": "🌐 Wszystkie Serwery", "pvp": "⚔️ PvP", "pve": "🛡️ PvE"}
+        available_keys = [k for k in ["all", "pvp", "pve"] if k in datasets_available]
+        census_tabs = st.tabs([realm_tab_labels[k] for k in available_keys])
+
+        for tab_obj, realm_key in zip(census_tabs, available_keys):
+            with tab_obj:
+                total, faction_counts, class_counts = compute_census_stats(census, realm_key)
+                ally_cnt = faction_counts["Alliance"]
+                horde_cnt = faction_counts["Horde"]
+                ally_pct = (ally_cnt / total) * 100
+                horde_pct = (horde_cnt / total) * 100
+                sorted_classes = sorted(class_counts.items(), key=lambda x: x[1], reverse=True)
+
+                m1, m2, m3 = st.columns(3)
+                with m1:
+                    st.metric(t("status_tested_chars"), f"{total:,}")
+                with m2:
+                    st.metric("🦅 Alliance", f"{ally_cnt:,}", f"{ally_pct:.1f}%")
+                with m3:
+                    st.metric("🪓 Horde", f"{horde_cnt:,}", f"{horde_pct:.1f}%")
+
+                st.markdown(
+                    f'<div style="margin:12px 0;height:28px;border-radius:14px;overflow:hidden;display:flex;box-shadow:0 2px 8px rgba(0,0,0,0.5);">'
+                    f'<div style="width:{ally_pct:.1f}%;background:linear-gradient(90deg,#0052cc,#00a2ff);display:flex;align-items:center;justify-content:center;font-size:0.9rem;font-weight:bold;color:#fff;min-width:70px;">🦅 {ally_pct:.1f}%</div>'
+                    f'<div style="width:{horde_pct:.1f}%;background:linear-gradient(90deg,#ff4d4d,#b30000);display:flex;align-items:center;justify-content:center;font-size:0.9rem;font-weight:bold;color:#fff;min-width:70px;">🪓 {horde_pct:.1f}%</div>'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
+
+                chart_df = pd.DataFrame([
+                    {"Klasa": name, "Postaci": cnt, "Procent": round((cnt / total) * 100, 2), "Kolor": class_colors.get(name, "#aaaaaa")}
+                    for name, cnt in sorted_classes
+                ])
+                chart = alt.Chart(chart_df).mark_bar(cornerRadiusTopLeft=6, cornerRadiusTopRight=6).encode(
+                    x=alt.X("Klasa:N", sort="-y", title="Klasa Postaci"),
+                    y=alt.Y("Procent:Q", title="Udział w populacji (%)"),
+                    color=alt.Color("Kolor:N", scale=None, legend=None),
+                    tooltip=["Klasa", "Postaci", "Procent"]
+                ).properties(height=360)
+                st.altair_chart(chart, use_container_width=True)
+
+                with st.expander("📋 Pełna tabela klas"):
+                    st.dataframe(
+                        chart_df[["Klasa", "Postaci", "Procent"]].rename(columns={"Postaci": "Liczba postaci", "Procent": "Udział (%)"}),
+                        use_container_width=True, hide_index=True
+                    )
+    else:
+        st.error("Nie udało się pobrać danych z classicplus.io. Sprawdź połączenie internetowe.")
+
+    st.write("---")
+    st.markdown(f"### {t('status_world_act')}")
+    col_p1, col_p2, col_p3 = st.columns(3)
+    with col_p1:
+        st.markdown('<div class="result-card"><h4 style="color:#ffda79;margin-top:0;">🚩 Warsong Gulch (WSG)</h4><div>Aktywne bitwy: <b>12 instancji</b></div><div>Czas oczekiwania: <b>~1.5 min</b></div><div style="color:#2ecc71;font-size:0.85rem;margin-top:4px;">🟢 Bonus Honor Weekend!</div></div>', unsafe_allow_html=True)
+    with col_p2:
+        st.markdown('<div class="result-card"><h4 style="color:#ffda79;margin-top:0;">🏆 Arathi Basin (AB)</h4><div>Aktywne bitwy: <b>8 instancji</b></div><div>Czas oczekiwania: <b>~2.5 min</b></div><div style="color:#66c2ff;font-size:0.85rem;margin-top:4px;">Blacksmith & Lumber Mill</div></div>', unsafe_allow_html=True)
+    with col_p3:
+        st.markdown('<div class="result-card"><h4 style="color:#ffda79;margin-top:0;">🏰 Alterac Valley (AV)</h4><div>Aktywne bitwy: <b>3 bitwy 40v40</b></div><div>Czas oczekiwania: <b>~4 min</b></div><div style="color:#e0e0e0;font-size:0.85rem;margin-top:4px;">Drek\'Thar vs Vanndar</div></div>', unsafe_allow_html=True)
