@@ -39,9 +39,20 @@ def set_page(page_name):
     st.session_state.page = page_name
 
 def get_image_base64(path):
-    if os.path.exists(path):
+    if path and os.path.exists(path):
         with open(path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode('utf-8')
+    return ""
+
+def find_logo_path(filename):
+    possible_paths = [
+        f"assets/{filename}",
+        f"wow_gen/assets/{filename}",
+        os.path.join(os.path.dirname(__file__), "assets", filename)
+    ]
+    for path in possible_paths:
+        if os.path.exists(path):
+            return path
     return ""
 
 # --- SŁOWNIK TŁUMACZEŃ (PL / EN) ---
@@ -50,7 +61,7 @@ TRANSLATIONS = {
         "faction_select": "Wybierz Frakcję (Motyw):",
         "lang_select": "Język / Language:",
         "subtitle": "Baza wiedzy, narzędzia i statystyki — Motyw:",
-        "back_home": "⬅️️ Powrót do Strony Główniej",
+        "back_home": "⬅️ Powrót do Strony Główniej",
         "welcome_title": "Witaj w bazie wiedzy WoW Forever!",
         "welcome_desc": "Wybierz moduł klikając w jeden z poniższych przycisków:",
         "nav_news": "📰 News & Blue Posts",
@@ -164,7 +175,7 @@ TRANSLATIONS = {
         "prof_select": "Select Profession:",
         "prof_tab_route": "🗺 Step-by-Step Route (1-300)",
         "prof_tab_shop": "🛒 Shopping List (Materials)",
-        "prof_tab_keep": "⚠️ [KEEP] Tips (What to retain?)",
+        "prof_tab_keep": "⚠️️ [KEEP] Tips (What to retain?)",
         "prof_req_mats": "🧪 Required Materials:",
         "prof_do_count": "Craft:",
         "prof_keep_badge": "⚠ [KEEP] RETAIN!",
@@ -191,7 +202,7 @@ TRANSLATIONS = {
         "item_mode": "Select Mode:",
         "mode_browse": "📦 Browse Inventory",
         "mode_search": "🔍 Search Database",
-        "mode_compare": "⚖️️ Compare Items (A vs B)",
+        "mode_compare": "⚖️ Compare Items (A vs B)",
         "item_select_slot": "Select Equipment Slot (18 slots):",
         "item_select_item": "Select Item from slot:",
         "item_score_breakdown": "📊 Combat Value Breakdown:",
@@ -214,7 +225,7 @@ CLASS_SPECS = {
     "Hunter 🏹": ["Beast Mastery (BM)", "Marksmanship (MM)", "Survival (SV)"],
     "Warrior ⚔️": ["Arms", "Fury", "Protection (Tank)"],
     "Paladin 🔨": ["Holy (Healer)", "Protection (Tank)", "Retribution"],
-    "Rogue 🗡️️": ["Assassination", "Combat", "Subtlety"],
+    "Rogue 🗡️": ["Assassination", "Combat", "Subtlety"],
     "Priest ✨": ["Discipline", "Holy (Healer)", "Shadow"],
     "Shaman ⚡": ["Elemental", "Enhancement", "Restoration (Healer)"],
     "Mage 🔮": ["Arcane", "Fire", "Frost"],
@@ -548,7 +559,7 @@ if "Alliance" in st.session_state.faction:
     btn_border_top = "#4a8ace"
     btn_border_bottom = "#02070e"
     btn_glow = "rgba(0, 162, 255, 0.5)"
-    logo_file = "assets/alliance_logo.jpg"
+    logo_file = find_logo_path("alliance_logo.jpg")
 else:
     bg_gradient = "radial-gradient(circle at center, #3d1010 0%, #0d0404 100%)"
     banner_bg = "linear-gradient(180deg, rgba(69,16,16,0.4) 0%, rgba(42,8,8,0.85) 100%)"
@@ -561,7 +572,7 @@ else:
     btn_border_top = "#ce4a4a"
     btn_border_bottom = "#0e0202"
     btn_glow = "rgba(255, 51, 51, 0.5)"
-    logo_file = "assets/horde_logo.jpg"
+    logo_file = find_logo_path("horde_logo.jpg")
 
 st.markdown(f"""
 <style>
@@ -873,7 +884,7 @@ elif st.session_state.page == PAGE_PROF:
                             📍 Level: <span style="font-family: monospace; color: #fff;">[{z['range']}]</span> — {z['ore']}
                         </div>
                         <div style="font-size: 0.95rem; color: #e0e0e0; margin-bottom: 6px;">
-                            <b>🗺️️ Recommended Zones / Spots:</b> <span style="color: #66c2ff;">{z['zones']}</span>
+                            <b>🗺 Recommended Zones / Spots:</b> <span style="color: #66c2ff;">{z['zones']}</span>
                         </div>
                         <div style="font-size: 0.88rem; color: #8e9ca8; font-style: italic;">
                             💡 <b>Tip:</b> {z['tips']}
@@ -1000,12 +1011,13 @@ elif st.session_state.page == PAGE_CLASS:
             horizontal=True
         )
         
+        # --- TRYB 1: PRZEGLĄDAJ EKWIPUNEK ---
         if calc_mode == t("mode_browse"):
             selected_slot = st.selectbox(t("item_select_slot"), SLOTS_LIST, key="sb_slot_browse")
             items_in_slot = ITEMS_DB.get(selected_slot, {})
             
             if not items_in_slot:
-                st.warning(f"No items in slot '{selected_slot}'.")
+                st.warning(f"Brak przedmiotów w slocie '{selected_slot}'.")
             else:
                 chosen_item_name = st.selectbox(t("item_select_item"), list(items_in_slot.keys()), key="sb_chosen_item")
                 item_data = items_in_slot[chosen_item_name]
@@ -1030,6 +1042,81 @@ elif st.session_state.page == PAGE_CLASS:
                             })
                     if score_breakdown:
                         st.dataframe(pd.DataFrame(score_breakdown), use_container_width=True, hide_index=True)
+
+        # --- TRYB 2: SZUKAJ W BAZIE PRZEDMIOTÓW ---
+        elif calc_mode == t("mode_search"):
+            search_query = st.text_input("🔍 Wpisz nazwę szukanego przedmiotu (np. Thunderfury, Ashkandi, Drake):", key="search_input_field")
+            if search_query:
+                results = search_items(search_query)
+                if not results:
+                    st.info("Nie znaleziono przedmiotów pasujących do frazy.")
+                else:
+                    st.success(f"Znaleziono wyników: {len(results)}")
+                    selected_search_key = st.selectbox("Wybierz przedmiot z wyników:", list(results.keys()))
+                    slot_name, item_name, item_data = results[selected_search_key]
+                    
+                    col_s1, col_s2 = st.columns([1, 1])
+                    with col_s1:
+                        st.markdown(render_wow_item_card(item_name, item_data, slot_name, target_spec), unsafe_allow_html=True)
+                    with col_s2:
+                        st.markdown(f"#### {t('item_score_breakdown')}")
+                        st.write(f"{t('item_score_desc')} **{target_spec}**:")
+                        score_breakdown = []
+                        for stat_key, w in weights.items():
+                            val = item_data.get(stat_key, 0)
+                            if val > 0:
+                                score_breakdown.append({
+                                    "Stat": stat_key,
+                                    "Item Value": f"+{val}",
+                                    "Weight": f"x{w}",
+                                    "Points": f"+{round(val * w, 1)} pts"
+                                })
+                        if score_breakdown:
+                            st.dataframe(pd.DataFrame(score_breakdown), use_container_width=True, hide_index=True)
+
+        # --- TRYB 3: PORÓWNAJ PRZEDMIOTY (A vs B) ---
+        elif calc_mode == t("mode_compare"):
+            all_flat_items = []
+            for slot_k, slot_v in ITEMS_DB.items():
+                for item_k, item_v in slot_v.items():
+                    all_flat_items.append((f"{item_k} [{slot_k}]", slot_k, item_k, item_v))
+            
+            if len(all_flat_items) < 2:
+                st.info("Baza zawiera zbyt mało przedmiotów do porównania. Dodaj więcej przedmiotów do items_db.json.")
+            else:
+                col_cmp1, col_cmp2 = st.columns(2)
+                item_labels = [x[0] for x in all_flat_items]
+                
+                with col_cmp1:
+                    st.markdown("### 🅰️ Przedmiot A")
+                    sel_a = st.selectbox("Wybierz przedmiot A:", item_labels, index=0, key="cmp_item_a")
+                    data_a = next(x for x in all_flat_items if x[0] == sel_a)
+                    score_a = calculate_item_score(data_a[3], target_spec)
+                    
+                with col_cmp2:
+                    st.markdown("### 🅱️ Przedmiot B")
+                    sel_b = st.selectbox("Wybierz przedmiot B:", item_labels, index=1 if len(item_labels) > 1 else 0, key="cmp_item_b")
+                    data_b = next(x for x in all_flat_items if x[0] == sel_b)
+                    score_b = calculate_item_score(data_b[3], target_spec)
+                
+                # Ramki wyróżniające zwycięzcę
+                border_a = "border: 3px solid #2ecc71;" if score_a > score_b else None
+                border_b = "border: 3px solid #2ecc71;" if score_b > score_a else None
+                
+                c_disp1, c_disp2 = st.columns(2)
+                with c_disp1:
+                    st.markdown(render_wow_item_card(data_a[2], data_a[3], data_a[1], target_spec, custom_border=border_a), unsafe_allow_html=True)
+                with c_disp2:
+                    st.markdown(render_wow_item_card(data_b[2], data_b[3], data_b[1], target_spec, custom_border=border_b), unsafe_allow_html=True)
+                    
+                # Podsumowanie pojedynku
+                diff = abs(score_a - score_b)
+                if score_a > score_b:
+                    st.success(f"🏆 **{data_a[2]}** jest lepszy o **+{round(diff, 1)} pts** dla specjalizacji **{target_spec}**!")
+                elif score_b > score_a:
+                    st.success(f"🏆 **{data_b[2]}** jest lepszy o **+{round(diff, 1)} pts** dla specjalizacji **{target_spec}**!")
+                else:
+                    st.info(f"⚖️ Oba przedmioty dają identyczną wartość bojową ({score_a} pts) dla specjalizacji **{target_spec}**.")
 
 # ==========================================
 # 6. STATUS SERWERA & STATS
