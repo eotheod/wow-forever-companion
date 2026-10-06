@@ -44,7 +44,7 @@ def get_image_base64(path):
             return base64.b64encode(image_file.read()).decode('utf-8')
     return ""
 
-def find_logo_path(filename):
+def find_asset_path(filename):
     possible_paths = [
         f"assets/{filename}",
         f"wow_gen/assets/{filename}",
@@ -131,7 +131,7 @@ TRANSLATIONS = {
         # Status
         "status_title": "🌐 Status Serwerów & Statystyki Społeczności",
         "status_subtitle": "Dane z classicplus.io (census WoW: Forever) — aktualizowane automatycznie.",
-        "status_realms_header": "🖥️ Realmy WoW Forever — Podział na Typy Serwerów",
+        "status_realms_header": "🖥 Megaserwery WoW Forever — Zestawy Zasad (Rulesets)",
         "status_census_header": "📊 Statystyki Populacji — Live z classicplus.io",
         "status_tested_chars": "📋 Zbadane postacie",
         "status_world_act": "⚔️ Aktywność w Świecie: PvP & Raidy"
@@ -175,7 +175,7 @@ TRANSLATIONS = {
         "prof_select": "Select Profession:",
         "prof_tab_route": "🗺 Step-by-Step Route (1-300)",
         "prof_tab_shop": "🛒 Shopping List (Materials)",
-        "prof_tab_keep": "⚠️️ [KEEP] Tips (What to retain?)",
+        "prof_tab_keep": "⚠️ [KEEP] Tips (What to retain?)",
         "prof_req_mats": "🧪 Required Materials:",
         "prof_do_count": "Craft:",
         "prof_keep_badge": "⚠ [KEEP] RETAIN!",
@@ -210,7 +210,7 @@ TRANSLATIONS = {
         # Status
         "status_title": "🌐 Server Status & Community Census",
         "status_subtitle": "Data from classicplus.io (WoW: Forever census) — auto-updated.",
-        "status_realms_header": "🖥️ WoW Forever Realms — Server Types",
+        "status_realms_header": "🖥️ WoW Forever Megaservers — Rulesets",
         "status_census_header": "📊 Population Stats — Live from classicplus.io",
         "status_tested_chars": "📋 Scanned Characters",
         "status_world_act": "⚔️ World Activity: PvP & Raids"
@@ -530,7 +530,7 @@ def render_wow_item_card(item_name, item_data, slot_name, target_spec, custom_bo
     body_content = "".join(lines_html)
     
     return f"""
-    <div style="background: #0d1217; {border_style} border-radius: 8px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); margin-bottom: 12px;">
+    <div style="background: rgba(13, 18, 23, 0.92); {border_style} border-radius: 8px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); margin-bottom: 12px;">
         <div style="font-size: 1.35rem; font-weight: bold; color: {color}; text-shadow: 1px 1px 3px #000; margin-bottom: 8px;">
             {item_name}
         </div>
@@ -546,48 +546,54 @@ def render_wow_item_card(item_name, item_data, slot_name, target_spec, custom_bo
 
 ITEMS_DB = load_items_db()
 
-# --- STYLIZACJA CSS FACTION THEMES (3D & ORYGINALNE BANERY) ---
+# --- STYLIZACJA CSS FACTION THEMES (DYNAMICZNE TŁA DLA CAŁEGO EKRANU) ---
 if "Alliance" in st.session_state.faction:
-    bg_gradient = "radial-gradient(circle at center, #10243e 0%, #070d14 100%)"
-    banner_bg = "linear-gradient(180deg, rgba(16,42,69,0.4) 0%, rgba(10,25,47,0.85) 100%)"
-    banner_img = "https://images.blz-contentstack.com/v3/assets/blt3452e3b114fab0cd/blt870c9d747a8ef0f9/611a919313cdcd0e89139265/Stormwind_1.jpg"
+    bg_img_file = find_asset_path("elowyn.jpg")
     border_color = "#00a2ff"
     text_gold = "#66c2ff"
     
-    # 3D Przycisk Przymierza
     btn_grad = "linear-gradient(180deg, #1e4570 0%, #0b1f36 50%, #061324 100%)"
     btn_border_top = "#4a8ace"
     btn_border_bottom = "#02070e"
     btn_glow = "rgba(0, 162, 255, 0.5)"
-    logo_file = find_logo_path("alliance_logo.jpg")
+    logo_file = find_asset_path("alliance_logo.jpg")
+    bg_overlay = "radial-gradient(circle at center, rgba(16, 36, 62, 0.75) 0%, rgba(7, 13, 20, 0.92) 100%)"
 else:
-    bg_gradient = "radial-gradient(circle at center, #3d1010 0%, #0d0404 100%)"
-    banner_bg = "linear-gradient(180deg, rgba(69,16,16,0.4) 0%, rgba(42,8,8,0.85) 100%)"
-    banner_img = "https://images.blz-contentstack.com/v3/assets/blt3452e3b114fab0cd/blt5696d54d241d7237/611a914108d6d60e7e192739/Orgrimmar_1.jpg"
+    bg_img_file = find_asset_path("durotar.jpg")
     border_color = "#ff3333"
     text_gold = "#ff8080"
     
-    # 3D Przycisk Hordy
     btn_grad = "linear-gradient(180deg, #701e1e 0%, #360b0b 50%, #240606 100%)"
     btn_border_top = "#ce4a4a"
     btn_border_bottom = "#0e0202"
     btn_glow = "rgba(255, 51, 51, 0.5)"
-    logo_file = find_logo_path("horde_logo.jpg")
+    logo_file = find_asset_path("horde_logo.jpg")
+    bg_overlay = "radial-gradient(circle at center, rgba(61, 16, 16, 0.75) 0%, rgba(13, 4, 4, 0.92) 100%)"
+
+bg_img_b64 = get_image_base64(bg_img_file)
+if bg_img_b64:
+    bg_css = f"url('data:image/jpeg;base64,{bg_img_b64}') center/cover no-repeat fixed"
+else:
+    bg_css = "none"
 
 st.markdown(f"""
 <style>
-    .main {{ 
-        background: {bg_gradient}; 
+    /* STYLIZACJA GŁÓWNEGO KONTENERA DLA CAŁEGO EKRANÓW */
+    [data-testid="stAppViewContainer"], .main {{ 
+        background: {bg_overlay}, {bg_css} !important; 
         color: #e0e0e0; 
-        background-attachment: fixed;
     }}
+    
+    [data-testid="stHeader"] {{
+        background: transparent !important;
+    }}
+
     [data-testid="stSidebar"] {{ display: none; }}
 
     .title-banner {{
         text-align: center;
         padding: 30px 20px;
-        background: url('{banner_img}') center/cover no-repeat, {banner_bg};
-        background-blend-mode: overlay;
+        background: {bg_overlay}, {bg_css};
         border-bottom: 3px solid {border_color};
         border-radius: 12px;
         margin-bottom: 25px;
@@ -604,7 +610,7 @@ st.markdown(f"""
     }}
 
     .result-card {{
-        background: linear-gradient(145deg, #182028 0%, #0d1217 100%);
+        background: linear-gradient(145deg, rgba(24, 32, 40, 0.85) 0%, rgba(13, 18, 23, 0.92) 100%);
         border: 2px solid #283545;
         border-left: 6px solid {border_color};
         padding: 18px;
@@ -622,7 +628,7 @@ st.markdown(f"""
 
     /* STYL BLUE POSTA BLIZZARDA */
     .blue-post-card {{
-        background: linear-gradient(180deg, #0a192f 0%, #06101e 100%);
+        background: linear-gradient(180deg, rgba(10, 25, 47, 0.85) 0%, rgba(6, 16, 30, 0.92) 100%);
         border: 2px solid #00a2ff;
         border-left: 6px solid #00a2ff;
         border-radius: 10px;
@@ -859,7 +865,7 @@ elif st.session_state.page == PAGE_PROF:
                     keep_badge = f'<span style="background-color: #b38600; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-left: 10px;">{t("prof_keep_badge")}</span>' if s.get("keep") else ''
                     
                     st.markdown(f"""
-                    <div style="background: #1c2228; border-left: 4px solid {border_color}; padding: 12px 15px; border-radius: 6px; margin-bottom: 10px;">
+                    <div style="background: rgba(28, 34, 40, 0.9); border-left: 4px solid {border_color}; padding: 12px 15px; border-radius: 6px; margin-bottom: 10px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                             <span style="font-size: 1.15rem; font-weight: bold; color: #ffffff;">
                                 <span style="color: {text_gold}; font-family: monospace;">[{s['range']}]</span> {s['item']} {keep_badge}
@@ -879,7 +885,7 @@ elif st.session_state.page == PAGE_PROF:
             elif "zones" in prof_info:
                 for z in prof_info["zones"]:
                     st.markdown(f"""
-                    <div style="background: #1c2228; border-left: 4px solid {border_color}; padding: 14px 16px; border-radius: 6px; margin-bottom: 12px;">
+                    <div style="background: rgba(28, 34, 40, 0.9); border-left: 4px solid {border_color}; padding: 14px 16px; border-radius: 6px; margin-bottom: 12px;">
                         <div style="font-size: 1.15rem; font-weight: bold; color: {text_gold}; margin-bottom: 6px;">
                             📍 Level: <span style="font-family: monospace; color: #fff;">[{z['range']}]</span> — {z['ore']}
                         </div>
@@ -909,7 +915,7 @@ elif st.session_state.page == PAGE_PROF:
             st.warning(t("prof_keep_warning"))
             for tip in prof_info.get("keep_items", []):
                 st.markdown(f"""
-                <div style="background: #251e12; border-left: 5px solid #d49a15; padding: 12px 16px; border-radius: 6px; margin-bottom: 10px; color: #ffebaa;">
+                <div style="background: rgba(37, 30, 18, 0.9); border-left: 5px solid #d49a15; padding: 12px 16px; border-radius: 6px; margin-bottom: 10px; color: #ffebaa;">
                     {tip}
                 </div>
                 """, unsafe_allow_html=True)
@@ -955,7 +961,7 @@ elif st.session_state.page == PAGE_CLASS:
                     st.markdown(f"**{t('race_pvp')}** {pvp_rating}")
                 
                 st.markdown(f"""
-                <div style="background: #1b2229; padding: 10px 14px; border-radius: 6px; margin: 8px 0; border-left: 3px solid {border_color};">
+                <div style="background: rgba(27, 34, 41, 0.9); padding: 10px 14px; border-radius: 6px; margin: 8px 0; border-left: 3px solid {border_color};">
                     <b>{t('race_verdict')}</b> {verdict}
                 </div>
                 """, unsafe_allow_html=True)
@@ -997,7 +1003,7 @@ elif st.session_state.page == PAGE_CLASS:
                 pl = stat_labels.get(stat_name, stat_name)
                 with cols_w[c_idx % 4]:
                     st.markdown(f"""
-                    <div style="background: #1a222a; border-left: 3px solid {border_color}; padding: 6px 10px; border-radius: 4px; margin-bottom: 6px;">
+                    <div style="background: rgba(26, 34, 42, 0.9); border-left: 3px solid {border_color}; padding: 6px 10px; border-radius: 4px; margin-bottom: 6px;">
                         <span style="color: #ffffff; font-size: 0.9rem;">{pl}:</span> <b style="color: {text_gold}; font-size: 0.95rem;">x{weight}</b>
                     </div>
                     """, unsafe_allow_html=True)
@@ -1088,7 +1094,7 @@ elif st.session_state.page == PAGE_CLASS:
                 item_labels = [x[0] for x in all_flat_items]
                 
                 with col_cmp1:
-                    st.markdown("### 🅰️ Przedmiot A")
+                    st.markdown("### 🅰 Przedmiot A")
                     sel_a = st.selectbox("Wybierz przedmiot A:", item_labels, index=0, key="cmp_item_a")
                     data_a = next(x for x in all_flat_items if x[0] == sel_a)
                     score_a = calculate_item_score(data_a[3], target_spec)
@@ -1162,24 +1168,15 @@ elif st.session_state.page == PAGE_STATUS:
         return total, faction_counts, class_counts
 
     st.markdown(f"### {t('status_realms_header')}")
+    st.caption("ℹ️ WoW: Forever działa w oparciu o megaserwery podzielone na oficjalne zestawy zasad (Rulesets).")
+    
     realms_all = [
-        {"Nazwa Realmu": "⚔️ Everlook [PvP]", "Kategoria": "PvP", "Typ": "Classic+ PvP", "Zasady": "Otwarte PvP w strefach spornych, walka o bazy i stolice", "Status": "🟢 Online", "Populacja": "High (Full)", "Gracze Online": 6120, "Bilans A:H": "51% : 49%", "Ping": "22 ms"},
-        {"Nazwa Realmu": "⚔️ Warsong [PvP]", "Kategoria": "PvP", "Typ": "Classic Fresh PvP", "Zasady": "Dynamiczne potyczki w STV, ranking Honoru i ranga 14", "Status": "🟢 Online", "Populacja": "Medium", "Gracze Online": 2850, "Bilans A:H": "49% : 51%", "Ping": "19 ms"},
-        {"Nazwa Realmu": "💀 Tel'Abim [Hardcore PvP]", "Kategoria": "PvP", "Typ": "Hardcore PvP (Permadeath)", "Zasady": "1 życie na postać + włączone otwarte PvP w świecie", "Status": "🟢 Online", "Populacja": "Medium", "Gracze Online": 1245, "Bilans A:H": "48% : 52%", "Ping": "29 ms"},
-        {"Nazwa Realmu": "🛡️ Nordanaar [PvE]", "Kategoria": "PvE", "Typ": "Classic+ PvE", "Zasady": "Bezpieczny leveling, PvP na życzenie (/pvp) lub Battlegroundy", "Status": "🟢 Online", "Populacja": "High", "Gracze Online": 4480, "Bilans A:H": "54% : 46%", "Ping": "25 ms"},
-        {"Nazwa Realmu": "🛡️ Darrowshire [PvE]", "Kategoria": "PvE", "Typ": "Normal PvE", "Zasady": "Spokojna eksploracja, dungeony i raidy endgame bez ganków", "Status": "🟢 Online", "Populacja": "Low", "Gracze Online": 980, "Bilans A:H": "52% : 48%", "Ping": "24 ms"},
-        {"Nazwa Realmu": "🎭 Ravenholdt [RP-PvP]", "Kategoria": "RP", "Typ": "Roleplay PvP", "Zasady": "Klimat RP, wymóg imion lore + otwarte starcia frakcji", "Status": "🟢 Online", "Populacja": "Medium", "Gracze Online": 2150, "Bilans A:H": "50% : 50%", "Ping": "27 ms"},
-        {"Nazwa Realmu": "🎭 Moonglade [RP-PvE]", "Kategoria": "RP", "Typ": "Roleplay PvE", "Zasady": "Immersja fabularna, karczmy, eventy gildyjne bez wymuszonego PvP", "Status": "🟢 Online", "Populacja": "Medium", "Gracze Online": 1640, "Bilans A:H": "53% : 47%", "Ping": "28 ms"}
+        {"Zestaw Zasad (Ruleset)": "⚔ World PvP Megaserver", "Kategoria": "PvP", "Typ": "Classic+ PvP", "Zasady": "Otwarte PvP w strefach spornych, walka o bazy i stolice", "Status": "🟢 Online", "Populacja": "High (Full)", "Bilans A:H": "51% : 49%", "Ping": "22 ms"},
+        {"Zestaw Zasad (Ruleset)": "🛡️ Normal / PvE Megaserver", "Kategoria": "PvE", "Typ": "Classic+ PvE", "Zasady": "Bezpieczny leveling, PvP na życzenie (/pvp) lub Battlegroundy", "Status": "🟢 Online", "Populacja": "High", "Bilans A:H": "54% : 46%", "Ping": "25 ms"},
+        {"Zestaw Zasad (Ruleset)": "🎭 Roleplay (RP) Megaserver", "Kategoria": "RP", "Typ": "Roleplay PvE/PvP", "Zasady": "Klimat RP, wymóg imion lore, eventy społecznościowe", "Status": "🟢 Online", "Populacja": "Medium", "Bilans A:H": "50% : 50%", "Ping": "27 ms"},
+        {"Zestaw Zasad (Ruleset)": "💀 Hardcore Megaserver", "Kategoria": "Hardcore", "Typ": "Hardcore (Permadeath)", "Zasady": "1 życie na postać, wyzwanie dla najodważniejszych", "Status": "🟢 Online", "Populacja": "Medium", "Bilans A:H": "48% : 52%", "Ping": "29 ms"}
     ]
-    t_all, t_pvp, t_pve, t_rp = st.tabs(["🌐 Wszystkie Realmy (7)", "⚔️ PvP (3)", "🛡️ PvE (2)", "🎭 RP (2)"])
-    with t_all:
-        st.dataframe(pd.DataFrame(realms_all).drop(columns=["Kategoria"]), use_container_width=True, hide_index=True)
-    with t_pvp:
-        st.dataframe(pd.DataFrame([r for r in realms_all if r["Kategoria"]=="PvP"]).drop(columns=["Kategoria"]), use_container_width=True, hide_index=True)
-    with t_pve:
-        st.dataframe(pd.DataFrame([r for r in realms_all if r["Kategoria"]=="PvE"]).drop(columns=["Kategoria"]), use_container_width=True, hide_index=True)
-    with t_rp:
-        st.dataframe(pd.DataFrame([r for r in realms_all if r["Kategoria"]=="RP"]).drop(columns=["Kategoria"]), use_container_width=True, hide_index=True)
+    st.dataframe(pd.DataFrame(realms_all), use_container_width=True, hide_index=True)
 
     st.write("---")
 
@@ -1196,7 +1193,7 @@ elif st.session_state.page == PAGE_STATUS:
             "Rogue": "#FFF468", "Priest": "#FFFFFF", "Shaman": "#0070DD",
             "Mage": "#3FC7EB", "Warlock": "#8788EE", "Druid": "#FF7C0A"
         }
-        realm_tab_labels = {"all": "🌐 Wszystkie Serwery", "pvp": "⚔️ PvP", "pve": "🛡️ PvE"}
+        realm_tab_labels = {"all": "🌐 Wszystkie Serwery", "pvp": "⚔️ PvP", "pve": "🛡️️ PvE"}
         available_keys = [k for k in ["all", "pvp", "pve"] if k in datasets_available]
         census_tabs = st.tabs([realm_tab_labels[k] for k in available_keys])
 
