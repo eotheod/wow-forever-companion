@@ -61,7 +61,7 @@ TRANSLATIONS = {
         "faction_select": "Wybierz Frakcję (Motyw):",
         "lang_select": "Język / Language:",
         "subtitle": "Baza wiedzy, narzędzia i statystyki — Motyw:",
-        "back_home": "⬅️ Powrót do Strony Główniej",
+        "back_home": "⬅️️ Powrót do Strony Główniej",
         "welcome_title": "Witaj w bazie wiedzy WoW Forever!",
         "welcome_desc": "Wybierz moduł klikając w jeden z poniższych przycisków:",
         "nav_news": "📰 News & Blue Posts",
@@ -191,7 +191,7 @@ TRANSLATIONS = {
         "race_all": "All",
         "race_available": "Available races for class",
         "race_pve": "⚔ PvE Rating:",
-        "race_pvp": "🛡️ PvP Rating:",
+        "race_pvp": "🛡️️ PvP Rating:",
         "race_verdict": "🎯 Verdict & Synergy:",
         "race_traits": "Racial Traits:",
         "item_calc_title": "⚔ Item Calculator & Spec Comparison",
@@ -578,7 +578,7 @@ else:
 
 st.markdown(f"""
 <style>
-    /* STYLIZACJA GŁÓWNEGO KONTENERA DLA CAŁEGO EKRANÓW */
+    /* STYLIZACJA GŁÓWNEGO KONTENERA DLA CAŁEGO EKRANU */
     [data-testid="stAppViewContainer"], .main {{ 
         background: {bg_overlay}, {bg_css} !important; 
         color: #e0e0e0; 
@@ -715,12 +715,14 @@ if st.session_state.page != PAGE_HOME:
         st.rerun()
 
 # ==========================================
-# 1. STRONA GŁÓWNA
+# 1. STRONA GŁÓWNA (ZAGOSPODAROWANA PRZESTRZEŃ)
 # ==========================================
 if st.session_state.page == PAGE_HOME:
     st.subheader(t("welcome_title"))
     st.write(t("welcome_desc"))
     st.write("---")
+    
+    # 1. PRZYCISKI NAWIGACYJNE
     col0, col1, col2, col3, col4 = st.columns(5)
     with col0:
         if st.button(t("nav_news"), use_container_width=True, key="h_btn_news"):
@@ -747,6 +749,56 @@ if st.session_state.page == PAGE_HOME:
             set_page(PAGE_STATUS)
             st.rerun()
         st.caption(t("nav_status_desc"))
+
+    st.write("---")
+
+    # 2. SEKCJA PUSH / DASHBOARD (NOWOŚCI & QUICK STATS)
+    dash_col1, dash_col2 = st.columns([1.8, 1.2])
+
+    with dash_col1:
+        latest_post = BLUE_POSTS_DATA[0] if BLUE_POSTS_DATA else None
+        if latest_post:
+            st.markdown(f"""
+            <div class="blue-post-card" style="margin-bottom: 0px;">
+                <div style="font-size: 0.85rem; color: {text_gold}; font-weight: bold; text-transform: uppercase; margin-bottom: 4px;">
+                    📢 Najnowsze Ogłoszenie
+                </div>
+                <div style="font-size: 1.25rem; font-weight: bold; color: #fff; margin-bottom: 6px;">
+                    {latest_post['title']}
+                </div>
+                <div style="font-size: 0.85rem; color: #88aacc; margin-bottom: 10px;">
+                    {latest_post['date']} | {latest_post['author']}
+                </div>
+                <div style="font-size: 0.92rem; color: #d0e5ff; margin-bottom: 12px;">
+                    {latest_post['summary']}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            if st.button("📖 Przejdź do ogłoszeń & Blue Posts", key="btn_home_to_news"):
+                set_page(PAGE_NEWS)
+                st.rerun()
+
+    with dash_col2:
+        st.markdown(f"""
+        <div class="result-card" style="height: 100%;">
+            <div style="font-size: 1.1rem; font-weight: bold; color: {text_gold}; margin-bottom: 12px;">
+                🌐 Status Serwerów w pigułce
+            </div>
+            <div style="margin-bottom: 8px; font-size: 0.95rem;">
+                🖥️ World PvP Realm: <b style="color: #2ecc71;">🟢 Online (Full)</b>
+            </div>
+            <div style="margin-bottom: 8px; font-size: 0.95rem;">
+                ⚖️ Bilans populacji: <b>51% Alliance / 49% Horde</b>
+            </div>
+            <div style="margin-bottom: 12px; font-size: 0.95rem;">
+                ⚔️ Aktywne Battlegroundy: <b style="color: #66c2ff;">WSG, AB, AV</b>
+            </div>
+            <hr style="border-color: #283545; margin: 10px 0;">
+            <div style="font-size: 0.85rem; color: #8e9ca8; font-style: italic;">
+                💡 <b>Porada dnia:</b> Sprawdź zakładkę Profesje, aby zobaczyć które półprodukty warto zachować [KEEP] na wyższe poziomy!
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ==========================================
 # 2. NEWS & BLUE POSTS
@@ -1193,7 +1245,7 @@ elif st.session_state.page == PAGE_STATUS:
             "Rogue": "#FFF468", "Priest": "#FFFFFF", "Shaman": "#0070DD",
             "Mage": "#3FC7EB", "Warlock": "#8788EE", "Druid": "#FF7C0A"
         }
-        realm_tab_labels = {"all": "🌐 Wszystkie Serwery", "pvp": "⚔️ PvP", "pve": "🛡️️ PvE"}
+        realm_tab_labels = {"all": "🌐 Wszystkie Serwery", "pvp": "⚔️ PvP", "pve": "🛡 PvE"}
         available_keys = [k for k in ["all", "pvp", "pve"] if k in datasets_available]
         census_tabs = st.tabs([realm_tab_labels[k] for k in available_keys])
 
